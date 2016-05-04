@@ -9,6 +9,14 @@ namespace ForKottans
 {
     class Card
     {
+        /*
+           American Expres - 34****,37**** 15
+           Visa 4***** 13,16,19
+           MasterCard 51****-55****(,2221**-2720****) 16
+           Maestro 50****,56****- 69**** 12-19
+           JCB 3528** - 3589** 16
+           */
+
         public static Dictionary<string, Regex> Vendors;
 
         public static string GetCredicCardVendor(string number)

@@ -10,39 +10,22 @@ namespace ForKottans
     {
         static void Main(string[] args)
         {
+            Console.WindowHeight += 30;
 
+            string number = "4534 6787 3452 7867";
 
-            string number = "5457082236147000";
-            bool res = true;
+            Console.WriteLine("First 20 numbers after 4534 6787 3452 7867\n\n");
 
             for (int i = 0; i < 20; i++)
             {
                 number = Card.GenerateNextCredicCardNumber(number);
-                res &= Card.IsCreditCardNumerValid(number);
-                Console.WriteLine(number);
+                Console.Write(number);
+                if (Card.IsCreditCardNumerValid(number)) Console.WriteLine(" Valid");
             }
-
-            Console.WriteLine(res);
-            Console.ReadLine();
-
-            return;
-
-
-            Console.WriteLine(Card.IsCreditCardNumerValid("5457082236147000"));
-
-
-            Console.ReadLine();
-            /*
-            American Expres - 34****,37**** 15
-            Visa 4***** 13,16,19
-            MasterCard 51****-55****(,2221**-2720****) 16
-            Maestro 50****,56****- 69**** 12-19
-            JCB 3528** - 3589** 16
-            */
-            Console.WindowHeight += 30;
+            
 
             //Maestro
-            Console.WriteLine("Maestro");
+            Console.WriteLine("\n\n\n\nMaestro");
             Console.WriteLine(Card.GetCredicCardVendor("5005678438955434565") == "Maestro");
             Console.WriteLine(Card.GetCredicCardVendor("61674975867456") == "Maestro");
             Console.WriteLine(Card.GetCredicCardVendor("565678438904") == "Maestro");
