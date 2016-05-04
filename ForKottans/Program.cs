@@ -19,7 +19,7 @@ namespace ForKottans
             {
                 number = Card.GenerateNextCredicCardNumber(number);
                 res &= Card.IsCreditCardNumerValid(number);
-                //Console.WriteLine(number);
+                
             }
 
             Console.WriteLine(res);
