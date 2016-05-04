@@ -15,11 +15,11 @@ namespace ForKottans
             string number = "5457082236147000";
             bool res = true;
 
-            for (int i = 0; i < 2000000; i++)
+            for (int i = 0; i < 20; i++)
             {
                 number = Card.GenerateNextCredicCardNumber(number);
                 res &= Card.IsCreditCardNumerValid(number);
-                
+                Console.WriteLine(number);
             }
 
             Console.WriteLine(res);

@@ -45,18 +45,12 @@ namespace ForKottans
 
             while (number.Contains(' '))
                 number = number.Remove(number.IndexOf(' '), 1);
-
+            
             ulong numb = Convert.ToUInt64(number);
 
-            string buf;
+            numb = numb - (numb % 10) + 10;
 
-            do
-            {
-                numb = numb - (numb % 10) + 10;
-                buf = Convert.ToString((10 - (ulong)GetIdentificationNumber(Convert.ToString(numb))) % 10 + numb);
-            } while (!IsCreditCardNumerValid(buf));
-
-            return buf;
+            return Convert.ToString((10 - (ulong)GetIdentificationNumber(Convert.ToString(numb)))%10 + numb);
         }
 
         private static void InitializeVendors()
