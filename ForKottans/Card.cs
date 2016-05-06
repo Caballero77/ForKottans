@@ -79,17 +79,17 @@ namespace ForKottans
             while (number.Contains(' '))
                 number = number.Remove(number.IndexOf(' '), 1);
 
-            int[] aray = number.Reverse().ToArray().Select(arg => int.Parse(new string(new char[] { arg }))).ToArray();
+            int[] array = number.Reverse().ToArray().Select(arg => int.Parse(new string(new char[] { arg }))).ToArray();
 
             int res = 0;
 
-            for (int i = 0; i < aray.Length; i++)
+            for (int i = 0; i < array.Length; i++)
                 if (i % 2 == 1)
-                    if (aray[i] * 2 < 9)
-                        res += aray[i] * 2;
+                    if (array[i] * 2 < 9)
+                        res += array[i] * 2;
                     else
-                        res += aray[i] * 2 - 9;
-                else res += aray[i];
+                        res += array[i] * 2 - 9;
+                else res += array[i];
             return res%10;
         }
 
