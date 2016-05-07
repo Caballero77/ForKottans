@@ -56,7 +56,7 @@ namespace ForKottans
 
             if ((vendor == "Unknown") || (!IsCreditCardNumerValid(number)))
             {
-                throw new Exception("I can`t give you the next number because input number isn`t corect");
+                throw new Exception("I can`t give you the next number because input number isn`t correct");
             }
 
             UInt64 maxlength = Vendors.Find(arg => arg.Item1 == vendor).Item3;
