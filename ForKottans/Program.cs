@@ -11,13 +11,6 @@ namespace ForKottans
         static void Main(string[] args)
         {
 
-            Console.WriteLine(Card.GenerateNextCreditCardNumber("4999999999999999993"));
-
-
-            Console.ReadLine();
-
-            return;
-
 
             Console.WindowHeight += 30;
 

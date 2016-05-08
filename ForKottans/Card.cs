@@ -20,6 +20,9 @@ namespace ForKottans
             while(number.Contains(' '))
                 number = number.Remove(number.IndexOf(' '),1);
 
+            if (GetIdentificationNumber(number)  != 0)
+                return "Unknown";
+
             foreach (Tuple<string,Regex, UInt64> t in Vendors)
                 if(t.Item2.IsMatch(number))
                     return t.Item1;
@@ -56,7 +59,7 @@ namespace ForKottans
 
             if ((vendor == "Unknown") || (!IsCreditCardNumerValid(number)))
             {
-                throw new Exception("I can`t give you the next number because input number isn`t corect");
+                throw new Exception("I can`t give you the next number because input number isn`t correct");
             }
 
             UInt64 maxlength = Vendors.Find(arg => arg.Item1 == vendor).Item3;
@@ -102,9 +105,8 @@ namespace ForKottans
                 Vendors.Add(new Tuple<string, Regex, UInt64>( "Visa", new Regex(@"^4([0-9]{12}|[0-9]{15}|[0-9]{18})$"),4999999999999999999));
                 Vendors.Add(new Tuple<string, Regex, UInt64>("MasterCard", new Regex(@"^5[1-5]{1}[0-9]{14}$"),5599999999999999));
                 Vendors.Add(new Tuple<string, Regex, UInt64>("JCB", new Regex(@"^(35(2[8-9]|[3-8][0-9]))[0-9]{12}$"),3589999999999999));
-                Vendors.Add(new Tuple<string, Regex, UInt64>("Maestro", new Regex(@"^(5018|5020|5038|6304|6759|6761|6763)([0-9]){12,15}$"), 6763999999999999999));
+                Vendors.Add(new Tuple<string, Regex, UInt64>("Maestro", new Regex(@"^(5[0,6-9]|6[0-9])([0-9]){10,17}$"), 6763999999999999999));
 
-                //5018, 5020, 5038, 5612, 5893, 6304, 6759, 6761, 6762, 6763, 0604, 6390
             }
         }
 
@@ -112,7 +114,7 @@ namespace ForKottans
            American Express - 34****,37**** 15
            Visa 4***** 13,16,19
            MasterCard 51****-55**** 16
-           Maestro 5018, 5020, 5038, 6304, 6759, 6761, 6763 12 - 19
+           Maestro 50, 56-69 12 - 19
            JCB 3528** - 3589** 16
            */
 
